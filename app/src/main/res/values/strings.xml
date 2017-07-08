@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">LibraryManagement</string>
+    <string name="book_search_prompt">Select search by</string>
+
+    <string-array name="book_search_array">
+        <item>Author</item>
+        <item>Book</item>
+        <item>Category</item>
+        <item>Whatever I am missing</item>
+    </string-array>
+</resources>
