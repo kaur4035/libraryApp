@@ -7,8 +7,8 @@ package com.garrytechnologieshub.librarymanagement;
         import android.widget.Spinner;
         import android.widget.Toast;
 
-        import java.util.ArrayList;
-        import java.util.List;
+        import java.io.IOException;
+        import java.io.InputStream;
 
 public class MainActivity extends AppCompatActivity {
     private Spinner spinner1;
@@ -40,6 +40,30 @@ public class MainActivity extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
             }
         });
+
+    }
+
+    public String loadJSONFromAsset() {
+        String json = null;
+        try {
+
+            InputStream is = getAssets().open("books.json");
+
+            int size = is.available();
+
+            byte[] buffer = new byte[size];
+
+            is.read(buffer);
+
+            is.close();
+
+            json = new String(buffer, "UTF-8");
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+        return json;
 
     }
 }
